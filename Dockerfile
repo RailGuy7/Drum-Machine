@@ -8,4 +8,4 @@ RUN npm run build
 
 FROM nginx:alpine3.20-slim
 COPY --from=builder /dmachine/build /usr/share/nginx/html/
-EXPOSE 8084
+EXPOSE 80
