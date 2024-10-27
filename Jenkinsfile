@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Deploing ..."
                 sh '(if [[-n $(docker ps | grep dmachine)]]; then docker stop dmachine && docker rm dmachine; fi)'
-                sh 'docker run -d --name dmachine -p 8084:8084 dmachine:0.$BUILD_NUMBER'                               
+                sh 'docker run -d --name dmachine -p 80:80 dmachine:0.$BUILD_NUMBER'                               
             }
         }
     }
