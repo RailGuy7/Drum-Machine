@@ -20,7 +20,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo "Deploing ..."
-                sh 'foo=$(docker ps | grep dmachine); if [ -n "$foo" ]; then docker stop dmachine && docker rm dmachine; fi'
+                sh 'if [ -n "$(docker ps | grep dmachine)" ]; then docker stop dmachine && docker rm dmachine; fi'
                 sh 'docker run -d --name dmachine -p 80:80 dmachine:0.$BUILD_NUMBER'                               
             }
         }
